@@ -1,0 +1,11 @@
+edu/eci/models/Car.class
+edu/eci/services/UserServices.class
+edu/eci/services/contracts/IUserServices.class
+edu/eci/controllers/UserController.class
+edu/eci/persistences/UserMemoryRepository.class
+edu/eci/models/User.class
+edu/eci/persistences/repositories/DAO.class
+edu/eci/Main.class
+edu/eci/controllers/CarController.class
+edu/eci/persistences/repositories/IUserRepository.class
+edu/eci/persistences/UserPostgresRepository.class
