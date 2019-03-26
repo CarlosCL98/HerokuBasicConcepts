@@ -20,33 +20,41 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<?> getUser(){
-        try{
+    public ResponseEntity<?> getUser() {
+        try {
             return new ResponseEntity<>(userServices.list(), HttpStatus.OK);
-        }catch(Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(e.getStackTrace(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> createUser(@RequestBody User user){
-        try{
+    public ResponseEntity<?> createUser(@RequestBody User user) {
+        try {
             return new ResponseEntity<>(userServices.create(user), HttpStatus.CREATED);
-        }catch(Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
     }
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.PUT, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> updateUser(@RequestBody User user){
-        throw new NotImplementedException();
+    public ResponseEntity<?> updateUser(@RequestBody User user) {
+        try {
+            return new ResponseEntity<>(userServices.update(user), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NO_CONTENT);
+        }
     }
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.DELETE, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> deleteUser(@RequestBody UUID id){
-        throw new NotImplementedException();
+    public ResponseEntity<?> deleteUser(@RequestBody UUID id) {
+        try {
+            return new ResponseEntity<>(userServices.delete(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NO_CONTENT);
+        }
     }
 }

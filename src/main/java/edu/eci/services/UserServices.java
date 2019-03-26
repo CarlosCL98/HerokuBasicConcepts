@@ -11,35 +11,52 @@ import java.util.List;
 import java.util.UUID;
 
 @Component
-public class UserServices implements IUserServices{
-
+public class UserServices implements IUserServices {
+    
     @Autowired
     @Qualifier("UserMemoryRepository")
     private IUserRepository userRepository;
-
+    
     @Override
     public List<User> list() {
         return userRepository.findAll();
     }
-
+    
     @Override
     public User create(User user) {
-        if(null == user.getId())
+        if (null == user.getId()) {
             throw new RuntimeException("Id invalid");
-        else if(userRepository.find(user.getId()) != null)
+        } else if (userRepository.find(user.getId()) != null) {
             throw new RuntimeException("The user exists");
-        else
+        } else {
             userRepository.save(user);
+        }
         return user;
     }
-
+    
     @Override
     public User get(UUID id) {
         return userRepository.find(id);
     }
-
+    
     @Override
     public User get(String name) {
         return userRepository.getUserByUserName(name);
+    }
+    
+    @Override
+    public User update(User user) {
+        userRepository.update(user);
+        return user;
+    }
+    
+    @Override
+    public User delete(UUID id) {
+        if (userRepository.find(id) == null) {
+            throw new RuntimeException("El usuario con id " + id.toString() + " no existe.");
+        }
+        User user = get(id);
+        userRepository.delete(user);
+        return user;
     }
 }

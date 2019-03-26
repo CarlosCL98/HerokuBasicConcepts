@@ -33,9 +33,45 @@ Ahora se crea una app en heroku mediante el comando **heroku create**
 
 ![](imgs/2-2HerokuAppCreate.png)
 
-Ahora se ejecuta **git push heroku master** para desplegar la aplicación.
+Ahora se ejecuta **git push heroku master** para desplegar la aplicación. Para esto, los archivos del proyecto deben estar en la raíz del repositorio para que funcione el despliegue.
 
-![](imgs/)
+![](imgs/2-DesplegandoEnHeroku.png)
 
+Ahora podemos comprobar que hay una instancia de nuestra aplicación ejecutándose mediante el comando **heroku ps:scale web=1**
 
+![](imgs/2-VerificandoHerokuRunning.png)
 
+Para abrir la aplicación ejecutándose en heroku se usa **heroku open** y se redirecciona a la app.
+
+![](imgs/2-AbriendoAppHeroku.png)
+
+Ahora debemos completar los siguientes puntos:
+
+- Complete the code to ensure that all the UserController endpoints are working properly.
+	
+	![](imgs/2-CarController.png)
+	![](imgs/2-CarController2.png)
+
+- Complete the code to ensure that all the CarController endpoints are working properly.
+
+	![](imgs/2-UserController.png)
+
+### View logs
+Para ver los logs usamos **heroku logs --tail**
+
+![](imgs/3-LogsHeroku.png)
+
+### Use a database
+Para usar Heroku Postgres en nuestra aplicación debemos usar el comando **heroku addons**
+
+![](imgs/4-HerokuAddOns.png)
+
+Ahora podemos ver la URL de la base de datos con el comando **heroku config** para poder realizar la configuración.
+
+DATABASE_URL: postgres://zzyocyjnelxucb:905cae55ab2f241ba88f67132a1e847ce5564a0fd4b9d324b45ad584cd4e50a4@ec2-54-225-129-101.compute-1.amazonaws.com:5432/d5qs7ja74kk2jj
+
+![](imgs/4-HerokuConfigDatabase.png)
+
+Para ver información más general sobre la base de datos creada, se usa el comando **heroku pg**
+
+![](imgs/4-HerokuPGInformacionGeneral.png)

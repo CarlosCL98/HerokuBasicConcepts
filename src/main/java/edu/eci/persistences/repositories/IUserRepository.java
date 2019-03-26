@@ -7,5 +7,6 @@ import java.util.UUID;
 
 @Repository
 public interface IUserRepository extends DAO<User, UUID> {
+
     User getUserByUserName(String userName);
 }
