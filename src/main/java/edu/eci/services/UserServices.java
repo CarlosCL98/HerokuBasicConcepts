@@ -14,7 +14,7 @@ import java.util.UUID;
 public class UserServices implements IUserServices {
     
     @Autowired
-    @Qualifier("UserMemoryRepository")
+    @Qualifier("UserPostgresRepository")
     private IUserRepository userRepository;
     
     @Override
@@ -26,7 +26,7 @@ public class UserServices implements IUserServices {
     public User create(User user) {
         if (null == user.getId()) {
             throw new RuntimeException("Id invalid");
-        } else if (userRepository.find(user.getId()) != null) {
+        } else if (get(user.getId()) != null) {
             throw new RuntimeException("The user exists");
         } else {
             userRepository.save(user);

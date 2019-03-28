@@ -10,7 +10,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import javax.sql.DataSource;
+
 import static java.util.stream.Collectors.toList;
+
+import java.sql.SQLException;
 
 @Component
 @Qualifier("UserMemoryRepository")
@@ -69,7 +73,7 @@ public class UserMemoryRepository implements IUserRepository{
     }
 
     @Override
-    public void remove(Long id) {
+    public void remove(String id) {
         UserMemoryRepository.usersContainer = UserMemoryRepository.getContainer()
                 .stream()
                 .filter(u -> !u.getId().equals(id))

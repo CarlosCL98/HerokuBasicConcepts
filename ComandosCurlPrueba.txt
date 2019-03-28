@@ -1,0 +1,7 @@
+curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:5000/users -d '{"name":"Andres","id":"5fc03087-d265-11e7-b8c6-83e29cd24f4c"}'
+curl -i -X PUT -HContent-Type:application/json -HAccept:application/json http://localhost:5000/users -d '{"name":"Andres Hernandez","id":"5fc03087-d265-11e7-b8c6-83e29cd24f4c"}'
+curl -i -X DELETE -HContent-Type:application/json -HAccept:application/json http://localhost:5000/users -d '5fc03087-d265-11e7-b8c6-83e29cd24f4c'
+
+curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:5000/cars -d '{"licencePlate":"FDR-578","brand":"Mercedez"}'
+curl -i -X PUT -HContent-Type:application/json -HAccept:application/json http://localhost:5000/cars -d '{"licencePlate":"FDR-578","brand":"Mercedes Benz"}'
+curl -i -X DELETE -HContent-Type:application/json -HAccept:application/json http://localhost:5000/cars -d 'FDR-578'

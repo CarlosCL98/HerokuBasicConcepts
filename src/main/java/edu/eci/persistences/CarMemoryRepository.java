@@ -7,10 +7,17 @@ package edu.eci.persistences;
 
 import edu.eci.models.Car;
 import edu.eci.persistences.repositories.ICarRepository;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import javax.sql.DataSource;
+
 import static java.util.stream.Collectors.toList;
+
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
@@ -68,7 +75,7 @@ public class CarMemoryRepository implements ICarRepository {
     }
 
     @Override
-    public void remove(Long id) {
+    public void remove(String id) {
         CarMemoryRepository.carsContainer = CarMemoryRepository.getContainer()
                 .stream()
                 .filter(c -> !c.getLicencePlate().equals(id))

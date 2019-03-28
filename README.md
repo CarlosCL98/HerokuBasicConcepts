@@ -75,3 +75,21 @@ DATABASE_URL: postgres://zzyocyjnelxucb:905cae55ab2f241ba88f67132a1e847ce5564a0f
 Para ver información más general sobre la base de datos creada, se usa el comando **heroku pg**
 
 ![](imgs/4-HerokuPGInformacionGeneral.png)
+
+### Verificar Funcionamiento de la conexión con la base
+
+![](imgs/5-UsersPOST.png)
+
+![](imgs/5-UsersPUT.png)
+
+![](imgs/5-UsersGET.png)
+
+![](imgs/5-UsersDELETE.png)
+
+![](imgs/5-CarsPOST.png)
+
+![](imgs/5-CarsPUT.png)
+
+![](imgs/5-CarsGET.png)
+
+![](imgs/5-CarsDELETE.png)
